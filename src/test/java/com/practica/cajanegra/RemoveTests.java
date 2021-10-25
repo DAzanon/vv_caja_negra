@@ -21,20 +21,30 @@ public class RemoveTests {
 
     /*
     @Test
-    public void removeLastInEmpty(String s){
+    public void removeLastInEmpty(){
         this.miLista = new SingleLinkedListImpl<String>();
-        assertThrows(EmptyCollectionException);
+        assertThrows(EmptyCollectionException, this.miLista.toString());
     }
     */
 
     @Test
-    public void removeLastOneElement(String s){
+    public void removeLastOneElement(){
         this.miLista = new SingleLinkedListImpl<String>("A");
+        try {
+            this.miLista.removeLast();
+        } catch (EmptyCollectionException e) {
+            e.printStackTrace();
+        }
         assertEquals("[]", this.miLista.toString());
     }
 
     @Test
-    public void removeLastFewElement(String s){
+    public void removeLastFewElement(){
+        try {
+            this.miLista.removeLast();
+        } catch (EmptyCollectionException e) {
+            e.printStackTrace();
+        }
         assertEquals("[A, B]", this.miLista.toString());
     }
 }
