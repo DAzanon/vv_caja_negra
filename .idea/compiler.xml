@@ -7,9 +7,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="vv_caja_negra" />
+        <module name="CajaNegra" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="CajaNegra" target="1.8" />
       <module name="vv_caja_negra" target="1.8" />
     </bytecodeTargetLevel>
   </component>
