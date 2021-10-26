@@ -53,4 +53,13 @@ public class SearchTests {
             assertEquals("C", this.miLista.getAtPos(p).toString());
     }
     */
+    
+    @ParameterizedTest(name="Add First {0} in list")
+@ValueSource(reversed= {"C", "B", "A"})
+public void reverse() {
+    this.miLista = new SingleLinkedListImpl<String>("A", "B", "C");
+    assertEquals(this.miLista.reverse(),  reversed);
+}
+
+    
 }
