@@ -53,5 +53,17 @@ public class InsertTests {
         }
     }
     */
+    
+    @ParameterizedTest(name="Add First {0} in list")
+@ValueSource(strings= {"A", "M", "Z", "@","["})
+public void addFirst(String s) {
+    this.miLista.addFirst(s);
+    if((s.charAt(s.length()-1)=='@') || (s.charAt(s.length()-1)=='['))
+        assertNotEquals("[" + s + ", A, B, C]", this.miLista.toString());
+    else
+        assertEquals("[" + s + ", A, B, C]", this.miLista.toString());
+}
+
+    
 }
 
