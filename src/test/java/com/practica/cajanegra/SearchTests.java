@@ -55,11 +55,44 @@ public class SearchTests {
     */
     
     @ParameterizedTest(name="Add First {0} in list")
-@ValueSource(reversed= {"C", "B", "A"})
-public void reverse() {
+@ValueSource(strings= {"C", "B", "A"})
+public void reverse(String s) {
     this.miLista = new SingleLinkedListImpl<String>("A", "B", "C");
-    assertEquals(this.miLista.reverse(),  reversed);
+    assertEquals(this.miLista.reverse(), s);
+}
+    public void emptyTest(){
+        this.miLista = new SingleLinkedListImpl<String>();
+        assertEquals(true, this.miLista.isEmpty());
+    }
+
+    @Test
+    public void notEmptyTest1(){
+        this.miLista = new SingleLinkedListImpl<String>("A");
+        assertEquals(false, this.miLista.isEmpty());
+    }
+
+    @Test
+    public void notEmptyTest3(){
+        this.miLista = new SingleLinkedListImpl<String>("A", "B", "C");
+        assertEquals(false, this.miLista.isEmpty());
+    }
+
+    @Test
+    public void size0Test(){
+        this.miLista = new SingleLinkedListImpl<String>();
+        assertEquals(0, this.miLista.size());
+    }
+
+    @Test
+    public void size1Test(){
+        this.miLista = new SingleLinkedListImpl<String>("A");
+        assertEquals(1, this.miLista.size());
+    }
+
+    @Test
+    public void size5Test(){
+        this.miLista = new SingleLinkedListImpl<String>("A", "B", "C", "D", "E");
+        assertEquals(5, this.miLista.size());
+    }
 }
 
-    
-}
