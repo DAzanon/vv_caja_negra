@@ -60,6 +60,7 @@ public void reverse(String s) {
     this.miLista = new SingleLinkedListImpl<String>("A", "B", "C");
     assertEquals(this.miLista.reverse(), s);
 }
+    @Test
     public void emptyTest(){
         this.miLista = new SingleLinkedListImpl<String>();
         assertEquals(true, this.miLista.isEmpty());
@@ -93,6 +94,28 @@ public void reverse(String s) {
     public void size5Test(){
         this.miLista = new SingleLinkedListImpl<String>("A", "B", "C", "D", "E");
         assertEquals(5, this.miLista.size());
+    }
+
+    @Test
+    public void isSubListTestN(SingleLinkedListImpl list){
+        this.miLista = new SingleLinkedListImpl<String>("A", "B", "C", "D", "E");
+        assertEquals(2, miLista.isSubList(new SingleLinkedListImpl<>("B", "C")));
+    }
+
+    @Test
+    public void isSubListTest0(SingleLinkedListImpl list){
+        this.miLista = new SingleLinkedListImpl<String>("A", "B", "C", "D", "E");
+        assertEquals(0, miLista.isSubList(new SingleLinkedListImpl<>()));
+    }
+    @Test
+    public void isSubListTest1(SingleLinkedListImpl list){
+        this.miLista = new SingleLinkedListImpl<String>("A");
+        assertEquals(1, miLista.isSubList(new SingleLinkedListImpl<>("A")));
+    }
+    @Test
+    public void isNotSubListTest(SingleLinkedListImpl list){
+        this.miLista = new SingleLinkedListImpl<String>("A", "B", "C", "D", "E");
+        assertEquals(-1, miLista.isSubList(new SingleLinkedListImpl<>("X", "B")));
     }
 }
 
