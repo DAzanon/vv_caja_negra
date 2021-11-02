@@ -64,6 +64,38 @@ public void addFirst(String s) {
         assertEquals("[" + s + ", A, B, C]", this.miLista.toString());
 }
 
-    
+    @ParameterizedTest(name="Add value {0} N times to list")
+    @ValueSource(strings={"@", "A", "M", "Z", "["})
+    public void addNTimesTest(String s){
+        int ej = 5;//5 por ejemplo, cambiar si es necesario
+        this.miLista.addNTimes(s,ej);
+        //Creamos un string para comprobar si se añade bien o mal
+        String str = "";
+        for (int i = 0; i < ej; i++){
+            str += ", "+s;
+        }
+        //Hacemos las comprobaciones
+        if(s.equals("@") || s.equals("[")){
+            assertNotEquals("[A, B, C"+str+"]", this.miLista.toString());
+        }else{
+            assertEquals("[A, B, C"+str+"]", this.miLista.toString());
+        }
+    }
+
+    @ParameterizedTest(name="Add value {0} N times to list 2")
+    @ValueSource(ints={0, 1, 10, 1000})
+    public void addNTimesTest2(int n){
+        String ej = "M";//M por ejemplo, cambiar si es necesario
+        this.miLista.addNTimes(ej,n);
+        //Creamos un string para comprobar si se añade bien o mal
+        String str = "";
+        for (int i = 0; i < n; i++){
+            str += ", "+ej;
+        }
+        //Hacemos las comprobaciones
+        assertEquals("[A, B, C"+str+"]", this.miLista.toString());
+    }
+
+
 }
 

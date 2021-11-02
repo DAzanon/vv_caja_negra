@@ -53,6 +53,36 @@ public class SearchTests {
             assertEquals("C", this.miLista.getAtPos(p).toString());
     }
     */
+
+    @Test
+    public void getAtPos0Test(){
+        this.miLista = new SingleLinkedListImpl<String>("A", "B", "C");
+        assertEquals("A", this.miLista.getAtPos(1));
+    }
+
+    @Test
+    public void getAtLastPosTest(){
+        this.miLista = new SingleLinkedListImpl<String>("A", "B", "C");
+        assertEquals("C", this.miLista.getAtPos(3));
+    }
+
+    @Test
+    public void getAtMidPosTest(){
+        this.miLista = new SingleLinkedListImpl<String>("A", "B", "C");
+        assertEquals("B", this.miLista.getAtPos(2));
+    }
+
+    @Test
+    public void getAtLeftPosTest(){
+        this.miLista = new SingleLinkedListImpl<String>("A", "B", "C");
+        assertThrows(java.lang.IllegalArgumentException.class, () -> {this.miLista.getAtPos(0);});
+    }
+
+    @Test
+    public void getAtRightPosTest(){
+        this.miLista = new SingleLinkedListImpl<String>("A", "B", "C");
+        assertThrows(java.lang.IllegalArgumentException.class, () -> {this.miLista.getAtPos(4);});
+    }
     
     @ParameterizedTest(name="Add First {0} in list")
 @ValueSource(strings= {"C", "B", "A"})
