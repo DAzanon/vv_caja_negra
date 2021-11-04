@@ -15,20 +15,30 @@ public class SearchTests {
 
     @Test
     public void indexOfFirstPosition() {
-        this.miLista = new SingleLinkedListImpl<String>("A", "B", "C");
+        this.miLista = new SingleLinkedListImpl<String>("A", "B", "M", "Y", "Z");
         assertEquals(1, this.miLista.indexOf("A"));
     }
 
     @Test
-    public void indexOfMidPosition() {
-        this.miLista = new SingleLinkedListImpl<String>("A", "B", "C");
-        assertEquals(2, this.miLista.indexOf("B"));
+    public void indexOfFirstPlusOnePosition() {
+        this.miLista = new SingleLinkedListImpl<String>("A", "B", "M", "Y", "Z");
+        assertEquals(1, this.miLista.indexOf("B"));
     }
 
     @Test
+    public void indexOfMidPosition() {
+        this.miLista = new SingleLinkedListImpl<String>("A", "B", "M", "Y", "Z");
+        assertEquals(1, this.miLista.indexOf("M"));
+    }
+    @Test
+    public void indexOfLastMinusOnePosition() {
+        this.miLista = new SingleLinkedListImpl<String>("A", "B", "M", "Y", "Z");
+        assertEquals(1, this.miLista.indexOf("Y"));
+    }
+    @Test
     public void indexOfLastPosition() {
-        this.miLista = new SingleLinkedListImpl<String>("A", "B", "C");
-        assertEquals(3, this.miLista.indexOf("C"));
+        this.miLista = new SingleLinkedListImpl<String>("A", "B", "M", "Y", "Z");
+        assertEquals(1, this.miLista.indexOf("Z"));
     }
     /*
     @Test

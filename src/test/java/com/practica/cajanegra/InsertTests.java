@@ -14,7 +14,7 @@ public class InsertTests {
     }
 
     @ParameterizedTest(name="Add Last {0} in list")
-    @ValueSource(strings= {"A", "M", "Z", "@","["})
+    @ValueSource(strings= {"A","B","M","Y","Z","@","["})
     public void addLast(String s) {
         this.miLista.addLast(s);
         if((s.charAt(s.length()-1)=='@') || (s.charAt(s.length()-1)=='['))
@@ -24,7 +24,7 @@ public class InsertTests {
     }
 
     @ParameterizedTest(name="Add value {0} at Pos 2 ")
-    @ValueSource(strings={"@", "A", "M", "Z", "["})
+    @ValueSource(strings={"A","B","M","Y","Z","@","["})
     public void addAtPosTestString(String s){
         this.miLista.addAtPos(s, 2);
         if((s.charAt(s.length()-1)=='@') || (s.charAt(s.length()-1)=='['))
@@ -55,7 +55,7 @@ public class InsertTests {
     */
     
     @ParameterizedTest(name="Add First {0} in list")
-@ValueSource(strings= {"A", "M", "Z", "@","["})
+@ValueSource(strings= {"A","B","M","Y","Z","@","["})
 public void addFirst(String s) {
     this.miLista.addFirst(s);
     if((s.charAt(s.length()-1)=='@') || (s.charAt(s.length()-1)=='['))
