@@ -63,6 +63,36 @@ public class SearchTests {
             assertEquals("C", this.miLista.getAtPos(p).toString());
     }
     */
+
+    @Test
+    public void getAtPos0Test(){
+        this.miLista = new SingleLinkedListImpl<String>("A", "B", "C");
+        assertEquals("A", this.miLista.getAtPos(1));
+    }
+
+    @Test
+    public void getAtLastPosTest(){
+        this.miLista = new SingleLinkedListImpl<String>("A", "B", "C");
+        assertEquals("C", this.miLista.getAtPos(3));
+    }
+
+    @Test
+    public void getAtMidPosTest(){
+        this.miLista = new SingleLinkedListImpl<String>("A", "B", "C");
+        assertEquals("B", this.miLista.getAtPos(2));
+    }
+
+    @Test
+    public void getAtLeftPosTest(){
+        this.miLista = new SingleLinkedListImpl<String>("A", "B", "C");
+        assertThrows(java.lang.IllegalArgumentException.class, () -> {this.miLista.getAtPos(0);});
+    }
+
+    @Test
+    public void getAtRightPosTest(){
+        this.miLista = new SingleLinkedListImpl<String>("A", "B", "C");
+        assertThrows(java.lang.IllegalArgumentException.class, () -> {this.miLista.getAtPos(4);});
+    }
     
     @ParameterizedTest(name="Add First {0} in list")
 @ValueSource(strings= {"C", "B", "A"})
@@ -70,6 +100,7 @@ public void reverse(String s) {
     this.miLista = new SingleLinkedListImpl<String>("A", "B", "C");
     assertEquals(this.miLista.reverse(), s);
 }
+    @Test
     public void emptyTest(){
         this.miLista = new SingleLinkedListImpl<String>();
         assertEquals(true, this.miLista.isEmpty());
@@ -103,6 +134,28 @@ public void reverse(String s) {
     public void size5Test(){
         this.miLista = new SingleLinkedListImpl<String>("A", "B", "C", "D", "E");
         assertEquals(5, this.miLista.size());
+    }
+
+    @Test
+    public void isSubListTestN(SingleLinkedListImpl list){
+        this.miLista = new SingleLinkedListImpl<String>("A", "B", "C", "D", "E");
+        assertEquals(2, miLista.isSubList(new SingleLinkedListImpl<>("B", "C")));
+    }
+
+    @Test
+    public void isSubListTest0(SingleLinkedListImpl list){
+        this.miLista = new SingleLinkedListImpl<String>("A", "B", "C", "D", "E");
+        assertEquals(0, miLista.isSubList(new SingleLinkedListImpl<>()));
+    }
+    @Test
+    public void isSubListTest1(SingleLinkedListImpl list){
+        this.miLista = new SingleLinkedListImpl<String>("A");
+        assertEquals(1, miLista.isSubList(new SingleLinkedListImpl<>("A")));
+    }
+    @Test
+    public void isNotSubListTest(SingleLinkedListImpl list){
+        this.miLista = new SingleLinkedListImpl<String>("A", "B", "C", "D", "E");
+        assertEquals(-1, miLista.isSubList(new SingleLinkedListImpl<>("X", "B")));
     }
 }
 
