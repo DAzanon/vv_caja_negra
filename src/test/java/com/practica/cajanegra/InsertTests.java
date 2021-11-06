@@ -35,9 +35,9 @@ public class InsertTests {
 
     /*
     @ParameterizedTest(name="Add value M at Pos {0}")
-    @ValueSource(ints={0, 1, 2, 3, 4})
+    @ValueSource(ints={0, 1, 2, 3})
     public void addAtPosTestPosition(int p) {
-        if((p <= 0) || (p > this.miLista.size()))
+        if(p <= 0)
             assertThrows(java.lang.IllegalArgumentException);
         else if(p == 1) {
             this.miLista.addAtPos("M", p);
