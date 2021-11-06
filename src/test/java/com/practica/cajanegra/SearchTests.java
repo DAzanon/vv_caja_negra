@@ -50,10 +50,10 @@ public class SearchTests {
 
     /*
     @ParameterizedTest(name="Get {0} element")
-    @ValueSource(ints= { 1, 2, 3})
+    @ValueSource(ints= { 1, 2, 3, 4})
     public void getAtPos(int p) {
         this.miLista = new SingleLinkedListImpl<String>("A", "B", "C");
-        if(p == 0)
+        if((p <= 0) || (p > this.miLista.size()))
             assertThrows(java.lang.IllegalArgumentException, this.miLista.getAtPos(p));
         else if(p == 1)
             assertEquals("A", this.miLista.getAtPos(p).toString());
@@ -94,12 +94,12 @@ public class SearchTests {
         assertThrows(java.lang.IllegalArgumentException.class, () -> {this.miLista.getAtPos(4);});
     }
     
-    @ParameterizedTest(name="Add First {0} in list")
-@ValueSource(strings= {"C", "B", "A"})
-public void reverse(String s) {
-    this.miLista = new SingleLinkedListImpl<String>("A", "B", "C");
-    assertEquals(this.miLista.reverse(), s);
-}
+    @ParameterizedTest(name="Add First {0} in list")    //CAMBIAR
+    @ValueSource(strings= {"C", "B", "A"})
+    public void reverse(String s) {
+        this.miLista = new SingleLinkedListImpl<String>("A", "B", "C");
+        assertEquals(this.miLista.reverse(), s);    //NO TIENE SENTIDO
+    }
     @Test
     public void emptyTest(){
         this.miLista = new SingleLinkedListImpl<String>();
@@ -107,13 +107,13 @@ public void reverse(String s) {
     }
 
     @Test
-    public void notEmptyTest1(){
+    public void EmptyTest1(){
         this.miLista = new SingleLinkedListImpl<String>("A");
         assertEquals(false, this.miLista.isEmpty());
     }
 
     @Test
-    public void notEmptyTest3(){
+    public void EmptyTest3(){
         this.miLista = new SingleLinkedListImpl<String>("A", "B", "C");
         assertEquals(false, this.miLista.isEmpty());
     }

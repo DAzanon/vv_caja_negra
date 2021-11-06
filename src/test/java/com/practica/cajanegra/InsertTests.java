@@ -35,9 +35,9 @@ public class InsertTests {
 
     /*
     @ParameterizedTest(name="Add value M at Pos {0}")
-    @ValueSource(ints={0, 1, 2, 3})
+    @ValueSource(ints={0, 1, 2, 3, 4})
     public void addAtPosTestPosition(int p) {
-        if(p <= 0)
+        if((p <= 0) || (p > this.miLista.size()))
             assertThrows(java.lang.IllegalArgumentException);
         else if(p == 1) {
             this.miLista.addAtPos("M", p);
@@ -55,14 +55,14 @@ public class InsertTests {
     */
     
     @ParameterizedTest(name="Add First {0} in list")
-@ValueSource(strings= {"A","B","M","Y","Z","@","["})
-public void addFirst(String s) {
-    this.miLista.addFirst(s);
-    if((s.charAt(s.length()-1)=='@') || (s.charAt(s.length()-1)=='['))
-        assertNotEquals("[" + s + ", A, B, C]", this.miLista.toString());
-    else
-        assertEquals("[" + s + ", A, B, C]", this.miLista.toString());
-}
+    @ValueSource(strings= {"A","B","M","Y","Z","@","["})
+    public void addFirst(String s) {
+        this.miLista.addFirst(s);
+        if((s.charAt(s.length()-1)=='@') || (s.charAt(s.length()-1)=='['))
+            assertNotEquals("[" + s + ", A, B, C]", this.miLista.toString());
+        else
+            assertEquals("[" + s + ", A, B, C]", this.miLista.toString());
+    }
 
     @ParameterizedTest(name="Add value {0} N times to list")
     @ValueSource(strings={"@", "A", "M", "Z", "["})

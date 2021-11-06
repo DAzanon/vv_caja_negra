@@ -23,12 +23,12 @@ public class RemoveTests {
     @Test
     public void removeLastInEmpty(){
         this.miLista = new SingleLinkedListImpl<String>();
-        assertThrows(EmptyCollectionException, this.miLista.toString());
+        assertThrows(com.cajanegra.EmptyCollectionException, this.miLista.toString());
     }
     */
 
     @Test
-    public void removeLastOneElement(){
+    public void removeLastInSizeOne(){
         this.miLista = new SingleLinkedListImpl<String>("A");
         try {
             this.miLista.removeLast();
@@ -39,7 +39,8 @@ public class RemoveTests {
     }
 
     @Test
-    public void removeLastFewElement(){
+    public void removeLastInSizeN(){
+        this.miLista = new SingleLinkedListImpl<String>("A","B", "C");
         try {
             this.miLista.removeLast();
         } catch (EmptyCollectionException e) {
