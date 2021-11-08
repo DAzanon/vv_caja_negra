@@ -7,9 +7,7 @@ import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.*;
 import org.junit.jupiter.params.provider.ValueSource;
 
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class RemoveTests {
     private SingleLinkedListImpl<String> miLista;
@@ -47,5 +45,65 @@ public class RemoveTests {
             e.printStackTrace();
         }
         assertEquals("[A, B]", this.miLista.toString());
+    }
+
+    @ParameterizedTest(name="Remove last element <T> from emptyList")
+    @ValueSource(strings={"A","B","M","Y","Z","@","["})
+    public void removeEmpty(String s){
+
+        this.miLista = new SingleLinkedListImpl<>();
+
+        try{
+            this.miLista.removeLast();
+        }catch(EmptyCollectionException e){
+            e.printStackTrace();
+        }
+
+        //Hacemos las comprobaciones
+        if(s.equals("@") || s.equals("[")){
+            assertNotEquals("[]", this.miLista.toString());
+        }else{
+            assertEquals("[]", this.miLista.toString());
+        }
+    }
+
+    @ParameterizedTest(name="Remove last element <T> from list with one element")
+    @ValueSource(strings={"A","B","M","Y","Z","@","["})
+    public void removeOneElement(String s){
+
+        this.miLista = new SingleLinkedListImpl<>(s);
+
+        try{
+            this.miLista.removeLast();
+        }catch(EmptyCollectionException e){
+            e.printStackTrace();
+        }
+
+        //Hacemos las comprobaciones
+        if(s.equals("@") || s.equals("[")){
+            assertNotEquals("[]", this.miLista.toString());
+        }else{
+            assertEquals("[]", this.miLista.toString());
+        }
+    }
+
+    @ParameterizedTest(name="Remove last element <T> from list with one element")
+    @ValueSource(strings={"A","B","M","Y","Z","@","["})
+    public void removeFewElement(String s){
+
+        this.miLista = new SingleLinkedListImpl<>("A","B","C",s);
+
+        try{
+            this.miLista.removeLast();
+        }catch(EmptyCollectionException e){
+            e.printStackTrace();
+        }
+
+        //Hacemos las comprobaciones
+        if(s.equals("@") || s.equals("[")){
+            assertNotEquals("[A,B,C]", this.miLista.toString());
+        }else{
+            assertEquals("[A,B,C]", this.miLista.toString());
+        }
     }
 }

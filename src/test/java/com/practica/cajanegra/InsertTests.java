@@ -65,7 +65,7 @@ public class InsertTests {
     }
 
     @ParameterizedTest(name="Add value {0} N times to list")
-    @ValueSource(strings={"@", "A", "M", "Z", "["})
+    @ValueSource(strings={"A","B","M","Y","Z","@","["})
     public void addNTimesTest(String s){
         int ej = 5;//5 por ejemplo, cambiar si es necesario
         this.miLista.addNTimes(s,ej);
