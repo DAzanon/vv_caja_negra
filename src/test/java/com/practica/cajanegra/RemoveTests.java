@@ -29,22 +29,14 @@ public class RemoveTests {
     @Test
     public void removeLastInSizeOne(){
         this.miLista = new SingleLinkedListImpl<String>("A");
-        try {
-            this.miLista.removeLast();
-        } catch (EmptyCollectionException e) {
-            e.printStackTrace();
-        }
+        this.miLista.removeLast();
         assertEquals("[]", this.miLista.toString());
     }
 
     @Test
     public void removeLastInSizeN(){
         this.miLista = new SingleLinkedListImpl<String>("A","B", "C");
-        try {
             this.miLista.removeLast();
-        } catch (EmptyCollectionException e) {
-            e.printStackTrace();
-        }
         assertEquals("[A, B]", this.miLista.toString());
     }
 

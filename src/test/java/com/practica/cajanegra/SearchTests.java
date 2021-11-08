@@ -45,7 +45,7 @@ public class SearchTests {
     @Test
     public void indexOf0Position() {
     this.miLista = new SingleLinkedListImpl<String>("A", "B", "M", "Y", "Z");
-        assertThrows(NoSuchElementException, this.miLista.indexOf("F"));
+        assertThrows(java.util.NoSuchElementException.class,()->{this.miLista.toString();});
     }
 
 
