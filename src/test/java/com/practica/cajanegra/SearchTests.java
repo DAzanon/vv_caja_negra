@@ -104,19 +104,19 @@ public class SearchTests {
     @Test
     public void emptyTest(){
         this.miLista = new SingleLinkedListImpl<String>();
-        assertEquals(true, this.miLista.isEmpty());
+        assertTrue( this.miLista.isEmpty());
     }
 
     @Test
     public void EmptyTest1(){
         this.miLista = new SingleLinkedListImpl<String>("A");
-        assertEquals(false, this.miLista.isEmpty());
+        assertFalse(this.miLista.isEmpty());
     }
 
     @Test
     public void EmptyTest3(){
         this.miLista = new SingleLinkedListImpl<String>("A", "B", "C");
-        assertEquals(false, this.miLista.isEmpty());
+        assertFalse(this.miLista.isEmpty());
     }
 
     @Test
