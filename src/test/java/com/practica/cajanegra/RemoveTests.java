@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.*;
 import org.junit.jupiter.params.provider.ValueSource;
+import com.cajanegra.EmptyCollectionException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,13 +18,13 @@ public class RemoveTests {
         this.miLista = new SingleLinkedListImpl<String>("A","B","C");
     }
 
-    /*
+
     @Test
     public void removeLastInEmpty(){
         this.miLista = new SingleLinkedListImpl<String>();
-        assertThrows(com.cajanegra.EmptyCollectionException, this.miLista.toString());
+        assertThrows(com.cajanegra.EmptyCollectionException.class,()->{this.miLista.toString();});
     }
-    */
+
 
     @Test
     public void removeLastInSizeOne(){

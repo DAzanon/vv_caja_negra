@@ -8,6 +8,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class SearchTests {
@@ -40,13 +41,13 @@ public class SearchTests {
         this.miLista = new SingleLinkedListImpl<String>("A", "B", "M", "Y", "Z");
         assertEquals(1, this.miLista.indexOf("Z"));
     }
-    /*
+
     @Test
     public void indexOf0Position() {
-    this.miLista = new SingleLinkedListImpl<String>("A", "B", "C");
-        assertThrows(java.util.NoSuchElementException, this.miLista.indexOf("F"));
+    this.miLista = new SingleLinkedListImpl<String>("A", "B", "M", "Y", "Z");
+        assertThrows(NoSuchElementException, this.miLista.indexOf("F"));
     }
-    */
+
 
     /*
     @ParameterizedTest(name="Get {0} element")
