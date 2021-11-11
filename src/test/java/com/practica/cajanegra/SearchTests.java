@@ -49,17 +49,22 @@ public class SearchTests {
     }
 
     @ParameterizedTest(name="Get {0} element")
-    @ValueSource(ints= { 1, 2, 3, 4})
+    @ValueSource(ints= {0, 1, 2, 3, 4, 5, 6})
     public void getAtPosTest(int p) {
-        this.miLista = new SingleLinkedListImpl<String>("A", "B", "C");
+        this.miLista = new SingleLinkedListImpl<String>("A", "B", "M", "Y", "Z");
         if((p <= 0) || (p > this.miLista.size()))
             assertThrows(java.lang.IllegalArgumentException.class, ()->{this.miLista.getAtPos(p);});
         else if(p == 1)
             assertEquals("A", this.miLista.getAtPos(p).toString());
         else if(p == 2)
             assertEquals("B", this.miLista.getAtPos(p).toString());
+        else if(p == 3)
+            assertEquals("M", this.miLista.getAtPos(p).toString());
+        else if(p == 4)
+            assertEquals("Y", this.miLista.getAtPos(p).toString());
         else
-            assertEquals("C", this.miLista.getAtPos(p).toString());
+            assertEquals("Z", this.miLista.getAtPos(p).toString());
+
     }
     
     @ParameterizedTest(name="Add First {0} in list")
