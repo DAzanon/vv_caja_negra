@@ -22,7 +22,7 @@ public class RemoveTests {
     @Test
     public void removeLastInEmpty(){
         this.miLista = new SingleLinkedListImpl<String>();
-        assertThrows(com.cajanegra.EmptyCollectionException.class,()->{this.miLista.toString();});
+        assertThrows(com.cajanegra.EmptyCollectionException.class,()->{this.miLista.removeLast();});
     }
 
 

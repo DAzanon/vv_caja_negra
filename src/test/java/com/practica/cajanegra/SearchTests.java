@@ -45,17 +45,15 @@ public class SearchTests {
     @Test
     public void indexOf0Position() {
     this.miLista = new SingleLinkedListImpl<String>("A", "B", "M", "Y", "Z");
-        assertThrows(java.util.NoSuchElementException.class,()->{this.miLista.toString();});
+        assertThrows(java.util.NoSuchElementException.class,()->{this.miLista.indexOf("F");});
     }
 
-
-    /*
     @ParameterizedTest(name="Get {0} element")
     @ValueSource(ints= { 1, 2, 3, 4})
-    public void getAtPos(int p) {
+    public void getAtPosTest(int p) {
         this.miLista = new SingleLinkedListImpl<String>("A", "B", "C");
         if((p <= 0) || (p > this.miLista.size()))
-            assertThrows(java.lang.IllegalArgumentException, this.miLista.getAtPos(p));
+            assertThrows(java.lang.IllegalArgumentException.class, ()->{this.miLista.getAtPos(p);});
         else if(p == 1)
             assertEquals("A", this.miLista.getAtPos(p).toString());
         else if(p == 2)
@@ -63,39 +61,8 @@ public class SearchTests {
         else
             assertEquals("C", this.miLista.getAtPos(p).toString());
     }
-    */
-
-    @Test
-    public void getAtPos0Test(){
-        this.miLista = new SingleLinkedListImpl<String>("A", "B", "C");
-        assertEquals("A", this.miLista.getAtPos(1));
-    }
-
-    @Test
-    public void getAtLastPosTest(){
-        this.miLista = new SingleLinkedListImpl<String>("A", "B", "C");
-        assertEquals("C", this.miLista.getAtPos(3));
-    }
-
-    @Test
-    public void getAtMidPosTest(){
-        this.miLista = new SingleLinkedListImpl<String>("A", "B", "C");
-        assertEquals("B", this.miLista.getAtPos(2));
-    }
-
-    @Test
-    public void getAtLeftPosTest(){
-        this.miLista = new SingleLinkedListImpl<String>("A", "B", "C");
-        assertThrows(java.lang.IllegalArgumentException.class, () -> {this.miLista.getAtPos(0);});
-    }
-
-    @Test
-    public void getAtRightPosTest(){
-        this.miLista = new SingleLinkedListImpl<String>("A", "B", "C");
-        assertThrows(java.lang.IllegalArgumentException.class, () -> {this.miLista.getAtPos(4);});
-    }
     
-    @ParameterizedTest(name="Add First {0} in list")    //CAMBIAR
+    @ParameterizedTest(name="Add First {0} in list")
     @ValueSource(strings= {"C", "B", "A"})
     public void reverse(String s) {
         this.miLista = new SingleLinkedListImpl<String>("A", "B", "C");
