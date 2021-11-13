@@ -67,12 +67,26 @@ public class SearchTests {
 
     }
     
-    @ParameterizedTest(name="Add First {0} in list")
-    @ValueSource(strings= {"C", "B", "A"})
-    public void reverse(String s) {
-        this.miLista = new SingleLinkedListImpl<String>("A", "B", "C");
-        assertEquals(this.miLista.reverse(), s);    //NO TIENE SENTIDO
+    @Test
+    public void reverseEmpty() {
+        this.miLista = new SingleLinkedListImpl<String>("");
+        assertEquals(this.miLista.reverse().toString(), "[]");
     }
+
+    @Test
+    public void reverseOnly() {
+        this.miLista = new SingleLinkedListImpl<String>("[A]");
+        assertEquals(this.miLista.reverse().toString(), "[A]");
+    }
+
+    @Test
+    public void reverseSeveral() {
+        this.miLista = new SingleLinkedListImpl<String>("[A]", "[B]", "[C]");
+        assertEquals(this.miLista.reverse().toString(), "[C ,B, A]");
+    }
+
+
+
     @Test
     public void emptyTest(){
         this.miLista = new SingleLinkedListImpl<String>();
