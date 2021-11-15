@@ -8,6 +8,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class SearchTests {
@@ -40,82 +41,68 @@ public class SearchTests {
         this.miLista = new SingleLinkedListImpl<String>("A", "B", "M", "Y", "Z");
         assertEquals(1, this.miLista.indexOf("Z"));
     }
-    /*
+
     @Test
     public void indexOf0Position() {
-    this.miLista = new SingleLinkedListImpl<String>("A", "B", "C");
-        assertThrows(java.util.NoSuchElementException, this.miLista.indexOf("F"));
+    this.miLista = new SingleLinkedListImpl<String>("A", "B", "M", "Y", "Z");
+        assertThrows(java.util.NoSuchElementException.class,()->{this.miLista.indexOf("F");});
     }
-    */
 
-    /*
     @ParameterizedTest(name="Get {0} element")
-    @ValueSource(ints= { 1, 2, 3, 4})
-    public void getAtPos(int p) {
-        this.miLista = new SingleLinkedListImpl<String>("A", "B", "C");
+    @ValueSource(ints= {0, 1, 2, 3, 4, 5, 6})
+    public void getAtPosTest(int p) {
+        this.miLista = new SingleLinkedListImpl<String>("A", "B", "M", "Y", "Z");
         if((p <= 0) || (p > this.miLista.size()))
-            assertThrows(java.lang.IllegalArgumentException, this.miLista.getAtPos(p));
+            assertThrows(java.lang.IllegalArgumentException.class, ()->{this.miLista.getAtPos(p);});
         else if(p == 1)
             assertEquals("A", this.miLista.getAtPos(p).toString());
         else if(p == 2)
             assertEquals("B", this.miLista.getAtPos(p).toString());
+        else if(p == 3)
+            assertEquals("M", this.miLista.getAtPos(p).toString());
+        else if(p == 4)
+            assertEquals("Y", this.miLista.getAtPos(p).toString());
         else
-            assertEquals("C", this.miLista.getAtPos(p).toString());
-    }
-    */
+            assertEquals("Z", this.miLista.getAtPos(p).toString());
 
-    @Test
-    public void getAtPos0Test(){
-        this.miLista = new SingleLinkedListImpl<String>("A", "B", "C");
-        assertEquals("A", this.miLista.getAtPos(1));
-    }
-
-    @Test
-    public void getAtLastPosTest(){
-        this.miLista = new SingleLinkedListImpl<String>("A", "B", "C");
-        assertEquals("C", this.miLista.getAtPos(3));
-    }
-
-    @Test
-    public void getAtMidPosTest(){
-        this.miLista = new SingleLinkedListImpl<String>("A", "B", "C");
-        assertEquals("B", this.miLista.getAtPos(2));
-    }
-
-    @Test
-    public void getAtLeftPosTest(){
-        this.miLista = new SingleLinkedListImpl<String>("A", "B", "C");
-        assertThrows(java.lang.IllegalArgumentException.class, () -> {this.miLista.getAtPos(0);});
-    }
-
-    @Test
-    public void getAtRightPosTest(){
-        this.miLista = new SingleLinkedListImpl<String>("A", "B", "C");
-        assertThrows(java.lang.IllegalArgumentException.class, () -> {this.miLista.getAtPos(4);});
     }
     
-    @ParameterizedTest(name="Add First {0} in list")    //CAMBIAR
-    @ValueSource(strings= {"C", "B", "A"})
-    public void reverse(String s) {
-        this.miLista = new SingleLinkedListImpl<String>("A", "B", "C");
-        assertEquals(this.miLista.reverse(), s);    //NO TIENE SENTIDO
+    @Test
+    public void reverseEmpty() {
+        this.miLista = new SingleLinkedListImpl<String>("");
+        assertEquals(this.miLista.reverse().toString(), "[]");
     }
+
+    @Test
+    public void reverseOnly() {
+        this.miLista = new SingleLinkedListImpl<String>("[A]");
+        assertEquals(this.miLista.reverse().toString(), "[A]");
+    }
+
+    @Test
+    public void reverseSeveral() {
+        this.miLista = new SingleLinkedListImpl<String>("[A]", "[B]", "[C]");
+        assertEquals(this.miLista.reverse().toString(), "[C ,B, A]");
+    }
+
+
+
     @Test
     public void emptyTest(){
         this.miLista = new SingleLinkedListImpl<String>();
-        assertEquals(true, this.miLista.isEmpty());
+        assertTrue( this.miLista.isEmpty());
     }
 
     @Test
     public void EmptyTest1(){
         this.miLista = new SingleLinkedListImpl<String>("A");
-        assertEquals(false, this.miLista.isEmpty());
+        assertFalse(this.miLista.isEmpty());
     }
 
     @Test
     public void EmptyTest3(){
         this.miLista = new SingleLinkedListImpl<String>("A", "B", "C");
-        assertEquals(false, this.miLista.isEmpty());
+        assertFalse(this.miLista.isEmpty());
     }
 
     @Test

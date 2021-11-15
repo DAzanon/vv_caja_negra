@@ -33,26 +33,22 @@ public class InsertTests {
             assertEquals("[A, "+ s +", B, C]", this.miLista.toString());
     }
 
-    /*
     @ParameterizedTest(name="Add value M at Pos {0}")
     @ValueSource(ints={0, 1, 2, 3})
     public void addAtPosTestPosition(int p) {
-        if(p <= 0)
-            assertThrows(java.lang.IllegalArgumentException);
-        else if(p == 1) {
+        if (p <= 0)
+            assertThrows(java.lang.IllegalArgumentException.class, ()->{this.miLista.addAtPos("M", p);});
+        else if (p == 1) {
             this.miLista.addAtPos("M", p);
             assertEquals("[M, A, B, C]", this.miLista.toString());
-        }
-        else if(p == 2) {
+        } else if (p == 2) {
             this.miLista.addAtPos("M", p);
             assertEquals("[A, M, B, C]", this.miLista.toString());
-        }
-        else {
+        } else {
             this.miLista.addAtPos("M", p);
             assertEquals("[A, B, M, C]", this.miLista.toString());
         }
     }
-    */
     
     @ParameterizedTest(name="Add First {0} in list")
     @ValueSource(strings= {"A","B","M","Y","Z","@","["})

@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.*;
 import org.junit.jupiter.params.provider.ValueSource;
+import com.cajanegra.EmptyCollectionException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,33 +18,25 @@ public class RemoveTests {
         this.miLista = new SingleLinkedListImpl<String>("A","B","C");
     }
 
-    /*
+
     @Test
     public void removeLastInEmpty(){
         this.miLista = new SingleLinkedListImpl<String>();
-        assertThrows(com.cajanegra.EmptyCollectionException, this.miLista.toString());
+        assertThrows(com.cajanegra.EmptyCollectionException.class,()->{this.miLista.removeLast();});
     }
-    */
+
 
     @Test
-    public void removeLastInSizeOne(){
+    public void removeLastInSizeOne() throws EmptyCollectionException {
         this.miLista = new SingleLinkedListImpl<String>("A");
-        try {
-            this.miLista.removeLast();
-        } catch (EmptyCollectionException e) {
-            e.printStackTrace();
-        }
+        this.miLista.removeLast();
         assertEquals("[]", this.miLista.toString());
     }
 
     @Test
-    public void removeLastInSizeN(){
+    public void removeLastInSizeN() throws EmptyCollectionException {
         this.miLista = new SingleLinkedListImpl<String>("A","B", "C");
-        try {
             this.miLista.removeLast();
-        } catch (EmptyCollectionException e) {
-            e.printStackTrace();
-        }
         assertEquals("[A, B]", this.miLista.toString());
     }
 
