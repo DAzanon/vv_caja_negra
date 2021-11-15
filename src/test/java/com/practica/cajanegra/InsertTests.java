@@ -83,7 +83,7 @@ public class InsertTests {
     }
 
     @ParameterizedTest(name="Add value {0} N times to list 2")
-    @ValueSource(ints={0, 1, 10, 1000})
+    @ValueSource(ints={1, 10, 1000})
     public void addNTimesTest2(int n){
         String ej = "M";//M por ejemplo, cambiar si es necesario
         this.miLista.addNTimes(ej,n);

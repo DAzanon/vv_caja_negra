@@ -55,15 +55,14 @@ public class RemoveTests {
 
         try{
             this.miLista.removeLast();
+            //Hacemos las comprobaciones
+            if(s.equals("@") || s.equals("[")){
+                assertNotEquals("[]", this.miLista.toString());
+            }else{
+                assertEquals("[]", this.miLista.toString());
+            }
         }catch(EmptyCollectionException e){
             e.printStackTrace();
-        }
-
-        //Hacemos las comprobaciones
-        if(s.equals("@") || s.equals("[")){
-            assertNotEquals("[]", this.miLista.toString());
-        }else{
-            assertEquals("[]", this.miLista.toString());
         }
     }
 
@@ -75,16 +74,18 @@ public class RemoveTests {
 
         try{
             this.miLista.removeLast();
+
+            //Hacemos las comprobaciones
+            if(s.equals("@") || s.equals("[")){
+                assertNotEquals("[]", this.miLista.toString());
+            }else{
+                assertEquals("[]", this.miLista.toString());
+            }
         }catch(EmptyCollectionException e){
             e.printStackTrace();
         }
 
-        //Hacemos las comprobaciones
-        if(s.equals("@") || s.equals("[")){
-            assertNotEquals("[]", this.miLista.toString());
-        }else{
-            assertEquals("[]", this.miLista.toString());
-        }
+
     }
 
     @ParameterizedTest(name="Remove last element <T> from list with one element")
@@ -101,9 +102,9 @@ public class RemoveTests {
 
         //Hacemos las comprobaciones
         if(s.equals("@") || s.equals("[")){
-            assertNotEquals("[A,B,C]", this.miLista.toString());
+            assertNotEquals("[A, B, C]", this.miLista.toString());
         }else{
-            assertEquals("[A,B,C]", this.miLista.toString());
+            assertEquals("[A, B, C]", this.miLista.toString());
         }
     }
 }
