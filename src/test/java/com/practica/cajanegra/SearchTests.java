@@ -23,23 +23,23 @@ public class SearchTests {
     @Test
     public void indexOfFirstPlusOnePosition() {
         this.miLista = new SingleLinkedListImpl<String>("A", "B", "M", "Y", "Z");
-        assertEquals(1, this.miLista.indexOf("B"));
+        assertEquals(2, this.miLista.indexOf("B"));
     }
 
     @Test
     public void indexOfMidPosition() {
         this.miLista = new SingleLinkedListImpl<String>("A", "B", "M", "Y", "Z");
-        assertEquals(1, this.miLista.indexOf("M"));
+        assertEquals(3, this.miLista.indexOf("M"));
     }
     @Test
     public void indexOfLastMinusOnePosition() {
         this.miLista = new SingleLinkedListImpl<String>("A", "B", "M", "Y", "Z");
-        assertEquals(1, this.miLista.indexOf("Y"));
+        assertEquals(4, this.miLista.indexOf("Y"));
     }
     @Test
     public void indexOfLastPosition() {
         this.miLista = new SingleLinkedListImpl<String>("A", "B", "M", "Y", "Z");
-        assertEquals(1, this.miLista.indexOf("Z"));
+        assertEquals(5, this.miLista.indexOf("Z"));
     }
 
     @Test
