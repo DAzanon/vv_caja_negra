@@ -49,7 +49,7 @@ public class SearchTests {
     }
 
     @ParameterizedTest(name="Get {0} element")
-    @ValueSource(ints= {0, 1, 2, 3, 4, 5, 6})
+    @ValueSource(ints= {0, 1, 2, 3, 4, 5})
     public void getAtPosTest(int p) {
         this.miLista = new SingleLinkedListImpl<String>("A", "B", "M", "Y", "Z");
         if((p <= 0) || (p > this.miLista.size()))
@@ -71,8 +71,9 @@ public class SearchTests {
     @ValueSource(strings= {"C", "B", "A"})
     public void reverse(String s) {
         this.miLista = new SingleLinkedListImpl<String>("A", "B", "C");
-        assertEquals(this.miLista.reverse(), s);    //NO TIENE SENTIDO
+        assertEquals(this.miLista.reverse().toString(), "[C,B,A]");
     }
+
     @Test
     public void emptyTest(){
         this.miLista = new SingleLinkedListImpl<String>();
