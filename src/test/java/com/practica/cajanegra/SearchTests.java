@@ -49,7 +49,7 @@ public class SearchTests {
     }
 
     @ParameterizedTest(name="Get {0} element")
-    @ValueSource(ints= {0, 1, 2, 3, 4, 5})
+    @ValueSource(ints= {0, 1, 2, 3, 4, 5, 6})
     public void getAtPosTest(int p) {
         this.miLista = new SingleLinkedListImpl<String>("A", "B", "M", "Y", "Z");
         if((p <= 0) || (p > this.miLista.size()))

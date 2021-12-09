@@ -26,6 +26,6 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.platform:junit-platform-suite:1.8.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.platform:junit-platform-suite-engine:1.8.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: com.singleList:SingleList:0.0.1-SNAPSHOT" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.junit.jupiter:junit-jupiter:5.8.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.junit.jupiter:junit-jupiter:5.8.2" level="project" />
   </component>
 </module>
